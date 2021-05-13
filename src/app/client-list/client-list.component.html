@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Vos clients</h2>
+            <div class="container" *ngFor="let client of clients">
+                <div style="background-color:royalblue; border-radius: 5px;"><h3>{{ client.nomComplet }}</h3></div>
+                    <div class="row" style="border: solid 1px; border-radius: 5px;">
+                        <div class="col-xs-6">
+                            <ul>
+                                <li>CIN: {{ client.nCin}}</li>
+                                <li>Date de naissance: {{ client.dateNaissance | date: 'dd/MM/yyyy' }}</li>
+                                <li>Lieu de naissance: {{ client.lieuNaissance }}</li>
+                                <li>Prenom de mère: {{ client.prenomMere }}</li>
+                                <li>Prenom de père: {{ client.prenomPere }}</li>
+                                <li>Stat matrimoniale: {{ client.satatMatrimoniale }}</li>
+                                <li>Nom de conjoint: {{ client.nomConjoint }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <ul>
+                                <li>Date de mariage: {{ client.dateMariage | date: 'dd/MM/yyyy' }}</li>
+                                <li>Lieu de mariage: {{ client.lieuMariage }}</li>
+                                <li>Adresse d'habitat: {{ client.adresseHabitat }}</li>
+                                <li>Adresse CIN: {{ client.adresseCin }}</li>
+                                <li>Téléphone: {{ client.numTel }}</li>
+                                <li>Email: {{ client.email }}</li>
+                                <li>Profession: {{ client.profession }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="onFillData(client)" style="margin-top: 5px;">Actualiser</button>
+                    <button class="btn btn-danger" (click)="onDelete(client.id)" style="margin-top: 5px; margin-left: 2px;">Supprimer</button>
+                </div>
+    </div>
+</div>

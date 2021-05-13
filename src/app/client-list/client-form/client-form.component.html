@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <input type="hidden" name="id" formControlName="id">
+                            <label for="nCin">CIN: <span style="color:red;">*</span></label>
+                            <input type="text" id="nCin" class="form-control" name="nCin" formContorlName="nCin">
+                        </div>
+                        <div class="form-group">
+                            <label for="nomComplet">Nom complet: <span style="color:red;">*</span></label>
+                            <input type="text" id="nomComplet" class="form-control" name="nomComplet" formContorlName="nomComplet">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateNaissance">Date de naissance: <span style="color:red;">*</span></label>
+                            <input type="date" id="dateNaissance" class="form-control" name="dateNaissance" formControlName="dateNaissance">
+                        </div>
+                        <div class="form-group">
+                            <label for="lieuNaissance">Lieu de naissance: <span style="color:red;">*</span></label>
+                            <input type="text" id="lieuNaissance" class="form-control" name="lieuNaissance" formControlName="lieuNaissance">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenomMere">Prénom mère: <span style="color:red;">*</span></label>
+                            <input type="text" id="prenomMere" class="form-control" name="prenomMere" formControlName="prenomMere">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenomPere">Prénom père: <span style="color:red;">*</span></label>
+                            <input type="text" id="prenomPere" class="form-control" name="prenomPere" formControlName="prenomPere">
+                        </div>
+                        <div class="form-group">
+                            <label for="satatMatrimoniale">Stat matrimoniale: <span style="color:red;">*</span></label>
+                            <select class="form-control" id="satatMatrimoniale" name="satatMatrimoniale" formControlName="satatMatrimoniale">
+                                <option value="marie">marié(e)</option>
+                                <option value="celebataire">célibataire</option>
+                                <option value="divorce">divorcé(e)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="nomConjoint">Nom du conjoint: <span *ngIf="clientForm.get('satatMatrimoniale').value==='marie'" style="color:red;">*</span></label>
+                            <input type="text" id="nomConjoint" class="form-control" name="nomConjoint" formControlName="nomConjoint">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateMariage">Date de mariage: <span *ngIf="clientForm.get('satatMatrimoniale').value==='marie'" style="color:red;">*</span></label>
+                            <input type="date" id="dateMariage" class="form-control" name="dateMariage" formControlName="dateMariage">
+                        </div>
+                        <div class="form-group">
+                            <label for="lieuMariage">Lieu de mariage: <span *ngIf="clientForm.get('satatMatrimoniale').value==='marie'" style="color:red;">*</span></label>
+                            <input type="text" id="lieuMariage" class="form-control" name="lieuMariage" formControlName="lieuMariage">
+                        </div>
+                        <div class="form-group">
+                            <label for="adresseHabitat">Adresse habitat: <span style="color:red;">*</span></label>
+                            <input type="text" id="adresseHabitat" class="form-control" name="adresseHabitat" formControlName="adresseHabitat">
+                        </div>
+                        <div class="form-group">
+                            <label for="adresseCin">Adresse CIN: <span style="color:red;">*</span></label>
+                            <input type="text" id="adresseCin" class="form-control" name="adresseCin" formControlName="adresseCin">
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="numTel">Téléphone: <span style="color:red;">*</span></label>
+                            <input type="text" id="numTel" class="form-control" name="numTel" formControlName="numTel">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email: <span style="color:red;">*</span></label>
+                            <input type="email" id="email" class="form-control" name="email" formControlName="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="profession">Profession: <span style="color:red;">*</span></label>
+                            <input type="text" id="profession" class="form-control" name="profession" formControlName="profession">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="color:red;">* champs requis</p>
+            <button class="btn btn-primary" type="submit" [disabled]="clientForm.invalid">Sauvgarder</button>
+        </form>
+    </div>
+</div>
